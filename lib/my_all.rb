@@ -1,10 +1,17 @@
+require 'pry'
 
-
-ddef my_all?(collection)
+def my_all?(collection)
   i = 0
-  while i < collection.length
-    yield(collection[i])
-    i = i + 1   #i += 1 does the same thing. Use this if it's easier for you.
-    binding.pry
+  returnedArr = []
+  while i<collection.length
+    returnedArr << yield(collection[i])
+    i += 1
   end
+
+  if returnedArr.include?(false)
+    false
+  else
+    true
+  end
+
 end
